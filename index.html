@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#24413a">
+<title>世の動きを読む四つの軸 — 政治と暮らしの動態論</title>
+<meta name="description" content="大きな政治と身近な政治、平和の時と戦いの時、力と情報、文字で固めた枠と土地のことば。四つの軸で政治と暮らしの動きを読み、最後に一つの循環へと編み直す覚書。">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="canonical" href="https://syu-toutousai.github.io/seiji-doutai/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="世の動きを読む四つの軸">
+<meta property="og:title" content="世の動きを読む四つの軸 — 政治と暮らしの動態論">
+<meta property="og:description" content="大きな政治と身近な政治、平和の時と戦いの時、力と情報、文字で固めた枠と土地のことば。四つの軸で政治と暮らしの動きを読む。">
+<meta property="og:url" content="https://syu-toutousai.github.io/seiji-doutai/">
+<style>
+:root{
+  --paper:#f2eee5;
+  --paper-deep:#e8e1d3;
+  --card:#faf7f0;
+  --ink:#1f2622;
+  --muted:#6b6559;
+  --line:#d6cdbd;
+  --forest:#24413a;
+  --forest-soft:#e3ebe5;
+  --rust:#a34a2a;
+  --rust-soft:#f2e4dc;
+  --ochre:#9a7438;
+  --ochre-soft:#f2e8d5;
+  --slate:#4b6270;
+  --slate-soft:#e4eaee;
+  --serif:"Noto Serif CJK JP","Noto Serif JP","Hiragino Mincho ProN","Yu Mincho","YuMincho","Songti SC",serif;
+  --sans:"Noto Sans CJK JP","Noto Sans JP","Hiragino Sans","Yu Gothic","YuGothic",system-ui,sans-serif;
+  --shadow:0 18px 50px rgba(48,38,24,.075);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 10% 6%,rgba(163,74,42,.05),transparent 28rem),
+    radial-gradient(circle at 90% 28%,rgba(36,65,58,.06),transparent 34rem),
+    var(--paper);
+  color:var(--ink);
+  font-family:var(--serif);
+  font-feature-settings:"palt" 1;
+  line-height:1.95;
+  word-break:auto-phrase;
+  text-rendering:optimizeLegibility;
+}
+a{color:inherit;text-underline-offset:.22em;text-decoration-thickness:.06em}
+.skip{
+  position:absolute;left:-9999px;top:0;z-index:99;background:var(--ink);color:var(--paper);
+  padding:.7em 1.1em;font-family:var(--sans);font-size:.82rem
+}
+.skip:focus{left:1rem;top:1rem}
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.055),transparent 45%),
+    linear-gradient(150deg,#1b2b27 0%,#24413a 54%,#2c3a33 100%);
+  color:#f7f1e5;
+  border-bottom:5px solid var(--rust);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:44px 44px;
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.7),transparent 90%);
+}
+.hero::after{
+  content:"四";position:absolute;right:-.04em;bottom:-.4em;
+  font-size:clamp(16rem,34vw,30rem);line-height:1;
+  color:rgba(247,241,229,.035);pointer-events:none;user-select:none;
+}
+.hero-inner{
+  position:relative;z-index:1;max-width:1060px;margin:0 auto;
+  padding:clamp(3.5rem,8vw,7rem) clamp(1.25rem,4vw,2.5rem) clamp(3rem,6vw,5rem);
+}
+.eyebrow{
+  margin:0 0 1.6rem;font-family:var(--sans);font-size:.72rem;font-weight:700;
+  letter-spacing:.24em;text-transform:uppercase;color:#c9bda8
+}
+.eyebrow span{margin:0 .7em;color:var(--rust);opacity:.95}
+h1{
+  margin:0;max-width:22em;
+  font-size:clamp(2rem,4.8vw,3.55rem);
+  line-height:1.34;font-weight:600;letter-spacing:.015em;
+  text-wrap:balance;
+}
+.subtitle{
+  margin:1.5rem 0 0;font-family:var(--sans);font-size:clamp(.9rem,2vw,1.08rem);
+  font-weight:500;letter-spacing:.08em;color:#d8cdbb;line-height:1.9
+}
+.lede{
+  margin:1.9rem 0 0;max-width:48em;font-size:clamp(.95rem,2vw,1.03rem);
+  line-height:2.05;color:#e5dccb
+}
+.meta-chips{
+  display:flex;flex-wrap:wrap;gap:.55rem;margin:2.2rem 0 0;padding:0;list-style:none
+}
+.meta-chips li{
+  border:1px solid rgba(247,241,229,.28);border-radius:999px;
+  padding:.28em .95em;font-family:var(--sans);font-size:.7rem;
+  letter-spacing:.12em;color:#ded3c0
+}
+main{max-width:1060px;margin:0 auto;padding:clamp(2.5rem,6vw,5rem) clamp(1.25rem,4vw,2.5rem) 0}
+.essay{max-width:860px;margin:0 auto}
+.section{padding:clamp(2.2rem,5vw,3.6rem) 0;border-top:1px solid var(--line)}
+.section:first-of-type{border-top:0;padding-top:0}
+.section-head{display:flex;align-items:flex-start;gap:clamp(.9rem,2.5vw,1.5rem);margin-bottom:1.7rem}
+.section-no{
+  flex:0 0 auto;font-size:clamp(2.7rem,7vw,4.6rem);line-height:.9;
+  color:var(--rust);font-weight:500;letter-spacing:-.04em
+}
+.kicker{
+  margin:0 0 .3rem;font-family:var(--sans);font-size:.68rem;font-weight:700;
+  letter-spacing:.26em;text-transform:uppercase;color:var(--muted)
+}
+h2{
+  margin:0;font-size:clamp(1.45rem,3.4vw,2.05rem);line-height:1.5;
+  font-weight:600;letter-spacing:.01em;text-wrap:balance
+}
+.section > p{margin:0 0 1.5rem;font-size:clamp(.96rem,2vw,1.03rem)}
+.section > p:last-child{margin-bottom:0}
+.toc{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:.6rem;
+  margin:2rem 0 0;padding:0;list-style:none
+}
+.toc a{
+  display:block;height:100%;padding:.8rem .95rem;background:var(--card);
+  border:1px solid var(--line);border-radius:4px;text-decoration:none;
+  font-family:var(--sans);font-size:.75rem;line-height:1.6;letter-spacing:.03em;
+  transition:.18s
+}
+.toc a:hover{border-color:var(--rust);transform:translateY(-2px)}
+.toc a span{display:block;margin-bottom:.18rem;font-size:.62rem;font-weight:700;letter-spacing:.18em;color:var(--rust)}
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.15rem;margin-top:1.8rem}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:4px;
+  padding:clamp(1.3rem,3vw,1.8rem);box-shadow:var(--shadow);
+  border-top:3px solid var(--accent,var(--forest))
+}
+.card h3{margin:.3rem 0 0;font-size:clamp(1.15rem,2.5vw,1.4rem);line-height:1.55;font-weight:600}
+.card h3 small{display:block;margin-top:.18rem;font-family:var(--sans);font-size:.7rem;line-height:1.7;font-weight:500;letter-spacing:.04em;color:var(--muted)}
+.card .tag{
+  margin:0;font-family:var(--sans);font-size:.64rem;font-weight:700;
+  letter-spacing:.22em;color:var(--accent,var(--forest));text-transform:uppercase
+}
+.card .sub{margin:.2rem 0 1.1rem;font-family:var(--sans);font-size:.76rem;line-height:1.7;color:var(--muted)}
+.card dl{margin:0}
+.card dl > div{border-top:1px dotted var(--line);padding-top:.9rem;margin-top:.9rem}
+.card dt{
+  margin:0 0 .35rem;font-family:var(--sans);font-size:.67rem;font-weight:700;
+  letter-spacing:.15em;color:var(--accent,var(--muted))
+}
+.card dd{margin:0;font-size:.92rem;line-height:1.9}
+.macro{--accent:var(--forest)}
+.micro{--accent:var(--rust)}
+.peace{--accent:var(--slate)}
+.war{--accent:var(--rust)}
+.energy{--accent:var(--ochre)}
+.information{--accent:var(--slate)}
+.script{--accent:var(--forest)}
+.vernacular{--accent:var(--rust)}
+.round-trip{
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem;
+  margin:1.8rem 0 0;padding:1.25rem 1.4rem;background:var(--card);
+  border:1px solid var(--line);border-radius:4px;box-shadow:var(--shadow)
+}
+.rt-side{text-align:center;font-family:var(--sans);font-size:.9rem;font-weight:700;line-height:1.7}
+.rt-side small{display:block;margin-top:.15rem;font-size:.68rem;font-weight:500;letter-spacing:.05em;color:var(--muted)}
+.rt-arrows{display:flex;flex-direction:column;gap:.35rem;text-align:center;font-family:var(--sans);font-size:.68rem;color:var(--rust);letter-spacing:.05em}
+.figure{margin:2rem 0 0}
+.svg-wrap{
+  background:var(--card);border:1px solid var(--line);border-radius:4px;
+  padding:1rem;box-shadow:var(--shadow);overflow-x:auto
+}
+.svg-wrap svg{display:block;width:100%;height:auto}
+.svg-wrap.wide svg{min-width:640px}
+.svg-wrap.phase svg{min-width:560px}
+figcaption{
+  margin-top:.9rem;font-family:var(--sans);font-size:.7rem;line-height:1.9;
+  letter-spacing:.03em;color:var(--muted)
+}
+.scroll-note{display:none}
+.svg-label{font-family:var(--sans);font-size:15px;fill:var(--ink);font-weight:600}
+.svg-small{font-family:var(--sans);font-size:12px;fill:var(--muted)}
+.svg-axis{font-family:var(--sans);font-size:13px;fill:var(--muted);letter-spacing:.08em}
+.svg-node{font-family:var(--serif);font-size:19px;fill:var(--ink);font-weight:600}
+.table-wrap{
+  overflow-x:auto;border:1px solid var(--line);border-radius:4px;
+  background:var(--card);box-shadow:var(--shadow);margin-top:1.8rem
+}
+table{width:100%;min-width:640px;border-collapse:collapse;font-family:var(--sans)}
+table caption{
+  caption-side:top;text-align:left;padding:1rem 1.15rem;
+  font-family:var(--sans);font-size:.68rem;font-weight:700;letter-spacing:.2em;color:var(--muted)
+}
+th,td{border:1px solid var(--line);padding:.85rem 1rem;text-align:left;vertical-align:top}
+thead th{background:var(--paper-deep);font-size:.72rem;line-height:1.7;letter-spacing:.04em}
+tbody th{background:var(--paper-deep);font-size:.78rem;line-height:1.65;white-space:nowrap}
+td{font-size:.82rem;line-height:1.85}
+td strong{font-weight:700}
+.glossary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem;margin-top:1.8rem}
+.term{
+  background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent,var(--forest));
+  padding:1rem 1.1rem;box-shadow:var(--shadow)
+}
+.term dt{margin:0;font-family:var(--sans);font-size:.82rem;font-weight:700;line-height:1.6}
+.term dd{margin:.3rem 0 0;font-size:.88rem;line-height:1.85}
+.term .native{display:block;margin-bottom:.18rem;color:var(--accent,var(--forest));font-weight:700}
+.term .gloss{display:block;color:var(--muted);font-size:.83rem}
+.term:last-child{grid-column:1/-1}
+.steps{list-style:none;counter-reset:step;margin:1.8rem 0 0;padding:0}
+.steps li{position:relative;padding:1.3rem 0 1.3rem 3.2rem;border-top:1px solid var(--line)}
+.steps li:last-child{border-bottom:1px solid var(--line)}
+.steps li::before{
+  counter-increment:step;content:counter(step,decimal-leading-zero);
+  position:absolute;left:0;top:1.35rem;font-family:var(--serif);
+  font-size:1.05rem;color:var(--rust);letter-spacing:.02em
+}
+.steps h3{margin:0 0 .45rem;font-size:1.08rem;line-height:1.6;font-weight:600}
+.steps p{margin:0;font-size:.94rem}
+.examples{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1.8rem}
+.example{
+  background:var(--card);border:1px solid var(--line);border-top:3px solid var(--accent,var(--forest));
+  padding:1.2rem 1.3rem;box-shadow:var(--shadow)
+}
+.example .tag{
+  margin:0;font-family:var(--sans);font-size:.62rem;font-weight:700;
+  letter-spacing:.2em;color:var(--accent,var(--forest))
+}
+.example h3{margin:.3rem 0 .5rem;font-size:1.03rem;line-height:1.55;font-weight:600}
+.example p{margin:0;font-size:.9rem;line-height:1.88}
+.questions{margin:1.6rem 0 0;padding:0;list-style:none}
+.questions li{
+  position:relative;padding:1.2rem 0 1.2rem 2.5rem;
+  border-top:1px solid var(--line);font-size:.97rem
+}
+.questions li:last-child{border-bottom:1px solid var(--line)}
+.questions li::before{
+  content:"問";position:absolute;left:0;top:1.28rem;
+  font-family:var(--serif);font-size:.95rem;color:var(--rust)
+}
+.coda{
+  margin:2.2rem 0 0;padding:1.5rem 1.6rem;border-left:3px solid var(--rust);
+  background:linear-gradient(90deg,rgba(163,74,42,.055),transparent);
+  font-size:clamp(.97rem,2vw,1.04rem);line-height:2.05
+}
+.note{
+  margin:2rem 0 0;padding:1.15rem 1.35rem;border:1px dashed var(--line);
+  background:rgba(255,255,255,.32);font-size:.84rem;line-height:1.95;color:var(--muted)
+}
+.site-footer{
+  margin-top:clamp(3rem,7vw,5.5rem);border-top:1px solid var(--line);
+  background:var(--paper-deep);text-align:center;
+  padding:2.4rem clamp(1.25rem,4vw,2.5rem) 2.8rem;font-family:var(--sans)
+}
+.footer-mark{margin:0 0 .45rem;font-family:var(--serif);font-size:1.05rem;letter-spacing:.12em}
+.site-footer p{margin:.25rem 0;font-size:.74rem;color:var(--muted);letter-spacing:.04em}
+.site-footer a{color:var(--ink);text-decoration-color:var(--line)}
+@media (max-width:760px){
+  .pair,.glossary,.examples{grid-template-columns:1fr}
+  .round-trip{grid-template-columns:1fr;gap:.65rem}
+  .rt-arrows{flex-direction:row;justify-content:center;gap:1rem}
+  .section-head{gap:.85rem}
+  .steps li{padding-left:2.7rem}
+}
+@media (max-width:640px){
+  .scroll-note{display:block;margin-top:.4rem;font-family:var(--sans);font-size:.66rem;line-height:1.8;letter-spacing:.05em;color:var(--rust)}
+  table{min-width:620px}
+  .svg-wrap.wide svg{min-width:600px}
+  .svg-wrap.phase svg{min-width:520px}
+}
+@media (max-width:460px){
+  body{line-height:1.88}
+  .eyebrow{font-size:.62rem;letter-spacing:.13em}
+  .eyebrow span{margin:0 .35em}
+  .lede{line-height:1.95}
+  .hero::after{font-size:13rem}
+  .questions li{padding-left:2.1rem}
+}
+@media print{
+  body{background:#fff}
+  .hero{background:#fff;color:#000;border-bottom:1px solid #000}
+  .hero::before,.hero::after,.skip{display:none}
+  .hero-inner{padding:1.5rem 0}
+  .eyebrow,.subtitle,.lede,.meta-chips{color:#333}
+  .meta-chips li{border-color:#999}
+  main{padding-top:1.5rem}
+  .card,.term,.example,.svg-wrap,.table-wrap,.round-trip,.coda{box-shadow:none}
+  .site-footer{background:#fff}
+  a{text-decoration:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ</a>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Political Dynamics <span>／</span> 政治と暮らしの覚書</p>
+    <h1>世の動きを読む<br>四つの軸</h1>
+    <p class="subtitle">大きな政治と身近な政治、平和の時と戦いの時、力と情報、文字の枠と土地のことば</p>
+    <p class="lede">世の中は、いつも同じ速さで動いているわけではない。あるときは言葉を交わしながらゆっくりと、あるときは力ずくで一気に。その動きを読み解くために、これまで交わされてきた政治と社会の動きについての考えを、四つの軸に分けて並べ、最後に一つの循環へと編み直す。</p>
+    <ul class="meta-chips">
+      <li>四つの軸</li>
+      <li>大きな政治／身近な政治</li>
+      <li>平和の時／戦いの時</li>
+      <li>力／情報</li>
+      <li>文字の枠／土地のことば</li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+<article class="essay">
+
+  <section class="section" id="intro">
+    <header class="section-head">
+      <span class="section-no" aria-hidden="true">序</span>
+      <div>
+        <p class="kicker">はじめに</p>
+        <h2>分けることと、つなぐこと</h2>
+      </div>
+    </header>
+    <p>世の中は、いつも同じ速さで動いているわけではない。あるときは、言葉を交わしながらゆっくりと。あるときは、力ずくで一気に。その動きを読み解くために、これまで政治と社会について交わされてきた考えを、四つの軸に分けて並べてみる。</p>
+    <p>ここで扱うのは、二つの言い方である。一つは、四つの軸によって全体を分類し、整理する言い方。もう一つは、四つの軸が互いに響き合い、一つの動きを形づくるという言い方。前者は静かな地図をつくり、後者は潮の満ち引きを読む。分けるだけでは、境目の向こう側が見えない。つなぐだけでは、どこに立っているのかが分からない。そこで、まず四つの軸を一つずつほどき、そのあとで、それらを一つの循環として編み直す。</p>
+    <ul class="toc" aria-label="四つの軸">
+      <li><a href="#axis-1"><span>一の軸</span>大きな政治と、身近な政治</a></li>
+      <li><a href="#axis-2"><span>二の軸</span>平和の時と、戦いの時</a></li>
+      <li><a href="#axis-3"><span>三の軸</span>力と情報の二つの次元</a></li>
+      <li><a href="#axis-4"><span>四の軸</span>文字で固めた枠と土地のことば</a></li>
+      <li><a href="#integration"><span>五</span>四つを重ねる</a></li>
+    </ul>
+  </section>
+
+  <section class="section" id="axis-1">
+    <header class="section-head">
+      <span class="section-no" aria-hidden="true">一</span>
+      <div>
+        <p class="kicker">第一の軸</p>
+        <h2>大きな政治と、身近な政治</h2>
+      </div>
+    </header>
+    <p>政治の動きは、見る高さによって姿を変える。高いところから見れば、国や法、制度や組織の動きが見える。目の高さから見れば、人と人の間の力、身体、情動、日々の抵抗が見える。この二つは別々の世界ではない。同じ世界を、違う細かさで見たものである。</p>
+
+    <div class="pair">
+      <section class="card macro">
+        <p class="tag">高いところから</p>
+        <h3>大きな政治<small>マクロ政治学（巨視的政治学）</small></h3>
+        <p class="sub">国・法・制度・大衆の動きを、社会全体の高さから見る。</p>
+        <dl>
+          <div>
+            <dt>見るもの</dt>
+            <dd>国、国と国の関係、制度、法の秩序、階級、大衆の動き。社会全体を俯瞰する大きな構造とシステム。</dd>
+          </div>
+          <div>
+            <dt>中心となる考え</dt>
+            <dd>統治の力、国の主権、イデオロギー、制度化された力の構造、総力戦の体制。</dd>
+          </div>
+          <div>
+            <dt>動き方</dt>
+            <dd>秩序を保つこと。マスメディアを通じた集合的な意思決定。決まったことが社会全体へ上から降りていく。</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="card micro">
+        <p class="tag">目の高さから</p>
+        <h3>身近な政治<small>ミクロ政治学（微視的政治学）</small></h3>
+        <p class="sub">人・身体・日々のやりとりを、暮らしの高さから見る。</p>
+        <dl>
+          <div>
+            <dt>見るもの</dt>
+            <dd>個人、小さな集まり、日々の相互行為、無意識の欲望、身体、地域の共同体。主体の内面と局所的な水準。</dd>
+          </div>
+          <div>
+            <dt>中心となる考え</dt>
+            <dd>生政治、主体化、微細な力、日常の抵抗、情動。</dd>
+          </div>
+          <div>
+            <dt>動き方</dt>
+            <dd>大きな秩序が個人の身体と言葉に染み込む。逆に、個人の小さな実践が大きな秩序を削り、変えていく。下から、そして網の目のように。</dd>
+          </div>
+        </dl>
+      </section>
+    </div>
+
+    <p style="margin-top:1.8rem">大きな政治は、法や制度を通じて身近な生活へ降りてくる。身近な政治は、慣れや情動を通じて大きな政治を支え、あるいは蝕む。この二つを切り離すと、制度は人を動かす力を失い、人の営みは形を持たなくなる。政治の動態は、この上下の往還の中で生まれる。</p>
+
+    <figure class="round-trip">
+      <div class="rt-side">大きな政治<small>国・法・制度・メディア</small></div>
+      <div class="rt-arrows" aria-hidden="true">
+        <span>↓ 枠が降りる</span>
+        <span>↑ 営みが滲む</span>
+      </div>
+      <div class="rt-side">身近な政治<small>身体・情動・日常の実践</small></div>
+    </figure>
+  </section>
+
+  <section class="section" id="axis-2">
+    <header class="section-head">
+      <span class="section-no" aria-hidden="true">二</span>
+      <div>
+        <p class="kicker">第二の軸</p>
+        <h2>平和の時と、戦いの時</h2>
+      </div>
+    </header>
+    <p>社会の動き方には、二つのモードがある。資源に余裕があり、生存の脅威が低いとき、社会は分かれた力でゆっくり動く。外敵の侵略、経済の崩壊、感染症の蔓延、激しい災害など、存亡の危機が迫ると、社会は一つの力へと集まり、速く動く。ここでは前者を「平和の時（平時）」、後者を「戦いの時（有事）」と呼ぶ。</p>
+    <p>二つは、少しずつ連続して変わるのではない。ある境目を越えた瞬間に、非線形に切り替わる。その境目を、ここでは「閾値」と呼ぶ。</p>
+
+    <div class="pair">
+      <section class="card peace">
+        <p class="tag">分かれる力</p>
+        <h3>平和の時<small>平時モード</small></h3>
+        <p class="sub">資源に余裕があり、生存の脅威が低い状態。</p>
+        <dl>
+          <div>
+            <dt>姿</dt>
+            <dd>力と情報が分かれる。多元的な対話、議会制民主主義、法の手続き、市場の自由な交換が働く。</dd>
+          </div>
+          <div>
+            <dt>速さ</dt>
+            <dd>遅い。熟議と手続きを重んじるから。</dd>
+          </div>
+          <div>
+            <dt>弱さ</dt>
+            <dd>危機への対応が遅れやすい。手続きが重なり、決めるまでに時間がかかる。</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="card war">
+        <p class="tag">集まる力</p>
+        <h3>戦いの時<small>有事モード</small></h3>
+        <p class="sub">存亡の危機（例外状態）において発動する状態。</p>
+        <dl>
+          <div>
+            <dt>姿</dt>
+            <dd>力と資源が一極に集まる。命令と服従の関係が強まる。</dd>
+          </div>
+          <div>
+            <dt>速さ</dt>
+            <dd>速い。生存を最優先し、手続きは簡素化されるか、止まる。</dd>
+          </div>
+          <div>
+            <dt>弱さ</dt>
+            <dd>力が集中しすぎると、誤りを正す回路が失われる。危機が終わった後も、集めた力が戻らないことがある。</dd>
+          </div>
+        </dl>
+      </section>
+    </div>
+
+    <p style="margin-top:1.8rem">平和の時から戦いの時への移行は、閾値を越えた瞬間に急速に起こる。この転換期には、大きな制度（法や国）が、身近な生活世界（身体、移動の制限、配給など）を急速に組み替える。逆に、戦いの時が終われば、社会は再び分かれた力へ戻ろうとする。だが、元の形にそのまま戻るとは限らない。危機の間に組み替えられた暮らしの枠は、平時にも残り、次の動きを縛る。</p>
+
+    <figure class="figure">
+      <div class="svg-wrap phase">
+        <svg viewBox="0 0 820 310" role="img" aria-labelledby="phase-title phase-desc">
+          <title id="phase-title">平和の時と戦いの時の間の閾値</title>
+          <desc id="phase-desc">時間の流れに沿って、力の集中がなだらかに進んだ後、閾値を越えたところで急に立ち上がる様子を示した概念図。</desc>
+          <line x1="70" y1="235" x2="770" y2="235" stroke="#d6cdbd" stroke-width="1.5"/>
+          <line x1="70" y1="45" x2="70" y2="235" stroke="#d6cdbd" stroke-width="1.5"/>
+          <line x1="475" y1="45" x2="475" y2="235" stroke="#a34a2a" stroke-width="1.4" stroke-dasharray="6 7" opacity=".75"/>
+          <text x="475" y="33" text-anchor="middle" class="svg-small" fill="#a34a2a">閾値</text>
+          <path d="M 82 196 C 180 194, 300 190, 400 181 C 448 177, 462 169, 475 112 C 488 57, 560 51, 748 46" fill="none" stroke="#a34a2a" stroke-width="3.2" stroke-linecap="round"/>
+          <circle cx="475" cy="112" r="5" fill="#a34a2a"/>
+          <text x="170" y="266" text-anchor="middle" class="svg-label">平和の時</text>
+          <text x="170" y="288" text-anchor="middle" class="svg-small">分かれた力・遅い決定</text>
+          <text x="625" y="266" text-anchor="middle" class="svg-label">戦いの時</text>
+          <text x="625" y="288" text-anchor="middle" class="svg-small">集まる力・速い決定</text>
+          <text x="42" y="140" transform="rotate(-90 42 140)" text-anchor="middle" class="svg-axis">力の集中</text>
+          <text x="770" y="258" text-anchor="end" class="svg-axis">時間</text>
+        </svg>
+      </div>
+      <figcaption>平和の時と戦いの時の間には、なだらかな坂ではなく、閾値がある。図は概念の見取り図であり、実際の移行の速さや形は事例によって異なる。<span class="scroll-note">図は横にスクロールできます。</span></figcaption>
+    </figure>
+  </section>
+
+  <section class="section" id="axis-3">
+    <header class="section-head">
+      <span class="section-no" aria-hidden="true">三</span>
+      <div>
+        <p class="kicker">第三の軸</p>
+        <h2>力と情報の二つの次元</h2>
+      </div>
+    </header>
+    <p>社会の複雑さと、力の行使の形を見るために、二つの次元を置く。縦軸は「力（エネルギー）」、横軸は「情報」である。力は資源や物理的な強制力、情報は記述やコード、伝達の仕組みを指す。どちらも、多い少ないだけでなく、どこに集まり、どう流れるかが大事になる。</p>
+
+    <div class="pair">
+      <section class="card energy">
+        <p class="tag">縦の次元</p>
+        <h3>力<small>エネルギー（資源・物理力）</small></h3>
+        <p class="sub">物理的・熱力学的な側面。</p>
+        <dl>
+          <div>
+            <dt>中身</dt>
+            <dd>軍事力、化石燃料、電力のインフラ、富の蓄積、人口の動き。</dd>
+          </div>
+          <div>
+            <dt>大きな政治とのつながり</dt>
+            <dd>伝統的な地政学や国の力は、この力の独占と分配によって働く。</dd>
+          </div>
+          <div>
+            <dt>高いとき</dt>
+            <dd>物質的な強制力とインフラが圧倒的に集まっている。</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="card information">
+        <p class="tag">横の次元</p>
+        <h3>情報<small>記述・コード・伝達</small></h3>
+        <p class="sub">サイバネティクス的・記号論的な側面。</p>
+        <dl>
+          <div>
+            <dt>中身</dt>
+            <dd>法の記述、メディア技術、アルゴリズム、サイバー空間、イデオロギー、文化のコード。</dd>
+          </div>
+          <div>
+            <dt>身近な政治とのつながり</dt>
+            <dd>情動の操作、微細な監視、土地の自律的なネットワークは、情報の伝わる速さと操作によって働く。</dd>
+          </div>
+          <div>
+            <dt>高いとき</dt>
+            <dd>高度な自己組織化、複雑な文脈化、サイバー空間。</dd>
+          </div>
+        </dl>
+      </section>
+    </div>
+
+    <p style="margin-top:1.8rem">社会の進化や危機は、力と情報のバランスで決まる。現代の「ハイブリッド戦」や「プラットフォーム資本主義」は、力の優位を情報の操作によって得ようとする形、あるいはその逆の形である。どちらが重いかは、時代と場によって変わる。</p>
+
+    <figure class="figure">
+      <div class="svg-wrap wide">
+        <svg viewBox="0 0 820 560" role="img" aria-labelledby="plane-title plane-desc">
+          <title id="plane-title">力と情報の二次元の見取り図</title>
+          <desc id="plane-desc">縦軸に力、横軸に情報を置き、四つの象限に総力戦、プラットフォーム資本主義、分散した共同体、土地の自律ネットワークを例として配置した概念図。</desc>
+          <rect x="100" y="70" width="320" height="200" fill="#f2e8d5" opacity=".62"/>
+          <rect x="420" y="70" width="320" height="200" fill="#e4eaee" opacity=".72"/>
+          <rect x="100" y="270" width="320" height="200" fill="#f2eee5" opacity=".7"/>
+          <rect x="420" y="270" width="320" height="200" fill="#e3ebe5" opacity=".7"/>
+          <line x1="100" y1="470" x2="752" y2="470" stroke="#6b6559" stroke-width="1.6"/>
+          <line x1="100" y1="470" x2="100" y2="62" stroke="#6b6559" stroke-width="1.6"/>
+          <polygon points="752,470 740,464 740,476" fill="#6b6559"/>
+          <polygon points="100,62 94,74 106,74" fill="#6b6559"/>
+          <line x1="420" y1="70" x2="420" y2="470" stroke="#d6cdbd" stroke-width="1" stroke-dasharray="5 7"/>
+          <line x1="100" y1="270" x2="740" y2="270" stroke="#d6cdbd" stroke-width="1" stroke-dasharray="5 7"/>
+          <text x="420" y="516" text-anchor="middle" class="svg-axis">情報（記述・コード・伝達） →</text>
+          <text x="46" y="270" transform="rotate(-90 46 270)" text-anchor="middle" class="svg-axis">力（資源・物理力） →</text>
+          <text x="260" y="150" text-anchor="middle" class="svg-label">力が強く、情報が薄い</text>
+          <text x="260" y="174" text-anchor="middle" class="svg-small">総力戦・古典的な軍事国家</text>
+          <text x="580" y="150" text-anchor="middle" class="svg-label">力と情報が重なる</text>
+          <text x="580" y="174" text-anchor="middle" class="svg-small">プラットフォーム資本主義・ハイブリッド戦</text>
+          <text x="260" y="350" text-anchor="middle" class="svg-label">力も情報も薄い</text>
+          <text x="260" y="374" text-anchor="middle" class="svg-small">分散した小さな共同体</text>
+          <text x="580" y="350" text-anchor="middle" class="svg-label">情報が濃い</text>
+          <text x="580" y="374" text-anchor="middle" class="svg-small">土地の自律ネットワーク・世論の渦</text>
+        </svg>
+      </div>
+      <figcaption>配置は説明のための見立てであり、固定的な分類ではない。実際の社会は、四つの象限の間を動き、複数の位置を同時に占める。<span class="scroll-note">図は横にスクロールできます。</span></figcaption>
+    </figure>
+  </section>
+
+  <section class="section" id="axis-4">
+    <header class="section-head">
+      <span class="section-no" aria-hidden="true">四</span>
+      <div>
+        <p class="kicker">第四の軸</p>
+        <h2>文字で固めた枠と、土地のことば</h2>
+      </div>
+    </header>
+    <p>力は、いつも同じ形で働くわけではない。文字とコードによって固められた枠から働く力もあれば、土地の暮らしの中から湧き上がる力もある。ここでは、前者を「スクリプチュアル・マトリックス（文字で固めた枠）」、後者を「ヴァナキュラー（土地のことば・暮らし）」と呼ぶ。</p>
+
+    <div class="pair">
+      <section class="card script">
+        <p class="tag">上から固定する</p>
+        <h3>文字で固めた枠<small>スクリプチュアル・マトリックス</small></h3>
+        <p class="sub">文字やコードによって体系化され、固定された支配のインフラ。</p>
+        <dl>
+          <div>
+            <dt>中身</dt>
+            <dd>公用語、成文法、官僚の登録システム、近代科学、デジタルのアルゴリズム。</dd>
+          </div>
+          <div>
+            <dt>性質</dt>
+            <dd>普遍性、均一性、中央集権性、見えるようにする志向。</dd>
+          </div>
+          <div>
+            <dt>働き</dt>
+            <dd>国や大きな力が社会を統治し、管理し、可視化するための枠。</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="card vernacular">
+        <p class="tag">下から湧き上がる</p>
+        <h3>土地のことば<small>ヴァナキュラー</small></h3>
+        <p class="sub">地域と共同体の身体・生活に深く根ざした、成文化されない生の営み。</p>
+        <dl>
+          <div>
+            <dt>中身</dt>
+            <dd>方言、口承の伝承、生活の知恵、インフォーマルな経済、慣習法。</dd>
+          </div>
+          <div>
+            <dt>性質</dt>
+            <dd>局所性、多様性、流動性、見えにくさ。</dd>
+          </div>
+          <div>
+            <dt>働き</dt>
+            <dd>上からの標準化に対して、逃れ、かいくぐり、あるいは換骨奪胎して生き延びる、身近な抵抗の源。</dd>
+          </div>
+        </dl>
+      </section>
+    </div>
+
+    <p style="margin-top:1.8rem">近代化の本質は、文字の枠が土地のことばを浸食し、統合していく過程である。だが、土地のことばが完全に消えることはない。両者は抑圧と抵抗の関係にあると同時に、文字の枠が維持されるためには、土地の情動やエネルギーの供給が欠かせないという、相補的な緊張関係にある。</p>
+    <p>枠は、中身がなければ空になる。土地のことばは、枠に息を吹き込む。だが、息を吹き込む者は、しばしば枠によって息を止められる。この矛盾が、文字の枠と土地のことばの関係を、単純な善悪では割り切れないものにしている。</p>
+
+    <figure class="figure">
+      <div class="round-trip">
+        <div class="rt-side">文字で固めた枠<small>標準化・可視化・均一性</small></div>
+        <div class="rt-arrows" aria-hidden="true">
+          <span>→ 標準化</span>
+          <span>← 抵抗・換骨奪胎</span>
+        </div>
+        <div class="rt-side">土地のことば<small>多様性・流動性・見えにくさ</small></div>
+      </div>
+      <figcaption>枠は土地のことばを飲み込み、土地のことばは枠を内側から揺らす。さらに、枠が維持されるためには、土地の情動とエネルギーの供給が要る。この相補的な緊張が、両者の関係を長く続かせている。</figcaption>
+    </figure>
+  </section>
+
+  <section class="section" id="integration">
+    <header class="section-head">
+      <span class="section-no" aria-hidden="true">五</span>
+      <div>
+        <p class="kicker">統合</p>
+        <h2>四つを重ねる</h2>
+      </div>
+    </header>
+    <p>四つの軸は、別々の棚にしまわれているのではない。重ねると、一つの動きが見えてくる。</p>
+
+    <div class="table-wrap">
+      <table>
+        <caption>四つの軸の見取り図</caption>
+        <thead>
+          <tr>
+            <th scope="col">軸</th>
+            <th scope="col">第一の見方</th>
+            <th scope="col">第二の見方</th>
+            <th scope="col">切り替えの合図</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">一</th>
+            <td><strong>大きな政治</strong><br>国・法・制度・大衆</td>
+            <td><strong>身近な政治</strong><br>身体・情動・日常</td>
+            <td>見る高さ、解像度</td>
+          </tr>
+          <tr>
+            <th scope="row">二</th>
+            <td><strong>平和の時</strong><br>分散と対話、遅い決定</td>
+            <td><strong>戦いの時</strong><br>集中と命令、速い決定</td>
+            <td>生存の脅威、閾値</td>
+          </tr>
+          <tr>
+            <th scope="row">三</th>
+            <td><strong>力の次元</strong><br>資源・物理力・インフラ</td>
+            <td><strong>情報の次元</strong><br>記述・コード・伝達</td>
+            <td>強制か、伝達か</td>
+          </tr>
+          <tr>
+            <th scope="row">四</th>
+            <td><strong>文字で固めた枠</strong><br>標準化・可視化</td>
+            <td><strong>土地のことば</strong><br>暮らしの自律・抵抗</td>
+            <td>標準化か、暮らしの自律か</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="scroll-note">表は横にスクロールできます。</p>
+
+    <p style="margin-top:1.8rem">三の軸は、対立する二極ではなく、二つの次元の交差点として読む。力が強く情報が薄い社会もあれば、力と情報が同時に濃い社会もある。四の軸も、単純な善悪ではない。文字の枠は、土地のことばを消すだけでなく、選別し、加工し、ときには保存する。</p>
+
+    <p>平和の時には、情報の次元が活発になる。文字の枠の中で、多様な土地のことばが花開く。身近な政治の自由度が高まり、小さな集まりや身体の表現が、大きな秩序を少しずつ揺らす。</p>
+    <p>だが、危機によって戦いの時へと切り替わると、社会は一気に力の次元へ戻る。大きな政治が主導し、文字の枠が土地のことばを強く統制し、画一化する。身近な政治の自由度は狭まり、暮らしの細部まで枠に合わせることが求められる。</p>
+    <p>この「構造（大きな政治・文字・力）」と「生成（身近な政治・暮らし・情報）」の間を、社会は絶えず行き来する。その往還と相転移の過程そのものが、この体系の描く政治社会の全体である。</p>
+
+    <figure class="figure">
+      <div class="svg-wrap wide">
+        <svg viewBox="0 0 820 620" role="img" aria-labelledby="cycle-title cycle-desc">
+          <title id="cycle-title">四つの軸が重なる循環</title>
+          <desc id="cycle-desc">平和の時、危機、戦いの時、再編の四つが環状に並び、構造と生成の往還を示す概念図。</desc>
+          <defs>
+            <marker id="cycle-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#a34a2a"/>
+            </marker>
+          </defs>
+          <circle cx="410" cy="280" r="170" fill="none" stroke="#d6cdbd" stroke-width="1.2" stroke-dasharray="4 8"/>
+          <path d="M 482 126 A 170 170 0 0 1 564 208" fill="none" stroke="#a34a2a" stroke-width="2" marker-end="url(#cycle-arrow)"/>
+          <path d="M 564 352 A 170 170 0 0 1 482 434" fill="none" stroke="#a34a2a" stroke-width="2" marker-end="url(#cycle-arrow)"/>
+          <path d="M 338 434 A 170 170 0 0 1 256 352" fill="none" stroke="#a34a2a" stroke-width="2" marker-end="url(#cycle-arrow)"/>
+          <path d="M 256 208 A 170 170 0 0 1 338 126" fill="none" stroke="#a34a2a" stroke-width="2" marker-end="url(#cycle-arrow)"/>
+          <circle cx="410" cy="110" r="39" fill="#e4eaee" stroke="#4b6270" stroke-width="1.5"/>
+          <text x="410" y="105" text-anchor="middle" class="svg-node">平和</text>
+          <text x="410" y="126" text-anchor="middle" class="svg-small">情報が活発</text>
+          <circle cx="580" cy="280" r="39" fill="#f2e4dc" stroke="#a34a2a" stroke-width="1.5"/>
+          <text x="580" y="275" text-anchor="middle" class="svg-node">危機</text>
+          <text x="580" y="296" text-anchor="middle" class="svg-small">閾値を越える</text>
+          <circle cx="410" cy="450" r="39" fill="#e3ebe5" stroke="#24413a" stroke-width="1.5"/>
+          <text x="410" y="445" text-anchor="middle" class="svg-node">戦い</text>
+          <text x="410" y="466" text-anchor="middle" class="svg-small">力へ回帰</text>
+          <circle cx="240" cy="280" r="39" fill="#f2e8d5" stroke="#9a7438" stroke-width="1.5"/>
+          <text x="240" y="275" text-anchor="middle" class="svg-node">再編</text>
+          <text x="240" y="296" text-anchor="middle" class="svg-small">暮らしが変わる</text>
+          <text x="410" y="268" text-anchor="middle" class="svg-node" style="font-size:22px">構造 ⇄ 生成</text>
+          <text x="410" y="294" text-anchor="middle" class="svg-small">四つの軸が重なる</text>
+          <text x="410" y="560" text-anchor="middle" class="svg-small">同じ形には戻らない。往還そのものが動態である。</text>
+        </svg>
+      </div>
+      <figcaption>図は概念の見取り図であり、歴史的な周期や所要時間を主張するものではない。危機の後、社会がどのように再編されるかは、その時の力と情報の配置によって変わる。<span class="scroll-note">図は横にスクロールできます。</span></figcaption>
+    </figure>
+  </section>
+
+  <section class="section" id="glossary">
+    <header class="section-head">
+      <span class="section-no" aria-hidden="true">六</span>
+      <div>
+        <p class="kicker">ことばの手引き</p>
+        <h2>難しい言葉を、暮らしの言葉へ</h2>
+      </div>
+    </header>
+    <p>ここまでの話には、学問の言葉がいくつか出てくる。むずかしい言葉は、分かったふりをしたままにしておくと、いつのまにか人を遠ざける。そこで、大切な言葉を、なるべく身近な言い方に置き換えておく。</p>
+
+    <dl class="glossary">
+      <div class="term macro">
+        <dt>マクロ政治学</dt>
+        <dd><span class="native">大きな枠から見る政治</span><span class="gloss">国、法、制度、大衆の動きを、高いところから見る。</span></dd>
+      </div>
+      <div class="term micro">
+        <dt>ミクロ政治学</dt>
+        <dd><span class="native">身のまわりから見る政治</span><span class="gloss">人、身体、日々のやりとり、小さな集まりの力を、目の高さから見る。</span></dd>
+      </div>
+      <div class="term micro">
+        <dt>生政治（バイオポリティクス）</dt>
+        <dd><span class="native">身体と暮らしをめぐる政治</span><span class="gloss">出生、健康、人口、生活の管理を通じて働く力。</span></dd>
+      </div>
+      <div class="term micro">
+        <dt>主体化</dt>
+        <dd><span class="native">自分が「自分」になっていく過程</span><span class="gloss">外から与えられた言葉や役割を、自分の中に取り込んでいくこと。</span></dd>
+      </div>
+      <div class="term micro">
+        <dt>微細な力（ミクロ・パワーズ）</dt>
+        <dd><span class="native">日常に散らばる小さな力</span><span class="gloss">監視、視線、作法、言葉づかいなど、身近な場で働く力。</span></dd>
+      </div>
+      <div class="term war">
+        <dt>例外状態</dt>
+        <dd><span class="native">法や手続きが一時的に止まる状態</span><span class="gloss">危機を理由に、通常の決まりが簡素化されたり、停止されたりする。</span></dd>
+      </div>
+      <div class="term peace">
+        <dt>フェイズ・シフト</dt>
+        <dd><span class="native">平和の時と戦いの時の切り替わり</span><span class="gloss">少しずつ変わるのではなく、閾値を越えて一気に移ることを指す。</span></dd>
+      </div>
+      <div class="term energy">
+        <dt>エネルギー次元</dt>
+        <dd><span class="native">力・資源・物理的な基盤</span><span class="gloss">軍事力、燃料、電力、富、人口など、物質的な力の集まり。</span></dd>
+      </div>
+      <div class="term information">
+        <dt>情報次元</dt>
+        <dd><span class="native">記述・コード・伝達の働き</span><span class="gloss">法の記述、メディア、アルゴリズム、文化のコードなど、制御と伝達の仕組み。</span></dd>
+      </div>
+      <div class="term script">
+        <dt>スクリプチュアル・マトリックス</dt>
+        <dd><span class="native">文字とコードで固めた支配の枠</span><span class="gloss">公用語、成文法、登録制度、科学、アルゴリズムなど、上から社会を見えるようにする枠。</span></dd>
+      </div>
+      <div class="term vernacular">
+        <dt>ヴァナキュラー</dt>
+        <dd><span class="native">土地の暮らしに根ざしたことばと営み</span><span class="gloss">方言、口承、生活の知恵、慣習法など、成文化されない生の実践。</span></dd>
+      </div>
+    </dl>
+
+    <p class="note">ここでの言い換えは、難しい言葉を近づけるための便宜である。学術的な定義を置き換えるものではないし、それぞれの言葉には、ここに書ききれない歴史と議論がある。</p>
+  </section>
+
+  <section class="section" id="usage">
+    <header class="section-head">
+      <span class="section-no" aria-hidden="true">七</span>
+      <div>
+        <p class="kicker">使い方</p>
+        <h2>この見取り図で問う</h2>
+      </div>
+    </header>
+    <p>この見取り図は、完成した学説ではなく、問いを立てるための道具である。目の前の出来事を、次の四つの手順で見てみる。</p>
+
+    <ol class="steps">
+      <li>
+        <h3>どの層で起きているか</h3>
+        <p>大きな政治の話か、身近な政治の話か。同じ出来事を、国の高さと、暮らしの高さの両方から見る。</p>
+      </li>
+      <li>
+        <h3>今はどちらの時か</h3>
+        <p>平和の時か、戦いの時か。何が閾値になっているか。誰がそれを決めているか。手続きは、どこまで残っているか。</p>
+      </li>
+      <li>
+        <h3>力と情報のどちらが効いているか</h3>
+        <p>強制か、伝達か。両方が重なっているか。力を持つ者が情報を操作しているのか、情報を持つ者が力に近づいているのか。</p>
+      </li>
+      <li>
+        <h3>文字の枠と土地のことばのどちらが押しているか</h3>
+        <p>標準化か、暮らしの自律か。枠が土地の情動をどう取り込み、どう切り捨てているか。土地のことばが、どこで枠をかいくぐっているか。</p>
+      </li>
+    </ol>
+
+    <div class="examples">
+      <section class="example information">
+        <p class="tag">事例の入口</p>
+        <h3>SNSと世論</h3>
+        <p>情報の次元が強く見える。だが、アルゴリズムという文字の枠が、見えるものと見えないものを選び分け、情動を動かす。身近な政治の自由度と、微細な監視が同時に強まる。</p>
+      </section>
+      <section class="example war">
+        <p class="tag">事例の入口</p>
+        <h3>パンデミックと災害</h3>
+        <p>平和の時から戦いの時への切り替わりが、身体、移動、配給のレベルで一気に起こる。大きな政治の決定が、身近な暮らしの細部を組み替える。</p>
+      </section>
+      <section class="example energy">
+        <p class="tag">事例の入口</p>
+        <h3>プラットフォーム資本主義</h3>
+        <p>力と情報が高い次元で重なる。インフラを握る者が、情報の流れを設計し、市場と暮らしの枠をつくる。力の独占は、もはや土地の占有だけでは成り立たない。</p>
+      </section>
+      <section class="example script">
+        <p class="tag">事例の入口</p>
+        <h3>ハイブリッド戦</h3>
+        <p>軍事力（力）と情報操作（情報）を組み合わせ、相手の社会の内側から揺さぶる。境界は、国と国の間だけでなく、身近な政治の層にも引かれる。</p>
+      </section>
+    </div>
+
+    <p class="note">これらは説明のための入口であり、個々の事例の分析には、資料に基づく検証が必要である。図や言い換えは、考えるための足場であって、結論ではない。</p>
+  </section>
+
+  <section class="section" id="questions">
+    <header class="section-head">
+      <span class="section-no" aria-hidden="true">八</span>
+      <div>
+        <p class="kicker">ひらかれた問い</p>
+        <h2>答えを閉じないために</h2>
+      </div>
+    </header>
+    <p>最後に、この見取り図から出てくる問いを、いくつか置いておく。答えは、それぞれの場所と時代の中で、資料を読み、人と話しながら見つけていくほかない。</p>
+
+    <ul class="questions">
+      <li>SNSは、身近な政治の自由度を広げるのか。それとも、文字の枠による監視を深めるのか。</li>
+      <li>パンデミックや災害は、平和の時から戦いの時への移行を、どこで起こすのか。閾値は何で決まるのか。</li>
+      <li>プラットフォーム資本主義は、力と情報の交錯の新しい型なのか。それとも、古い支配が姿を変えたものなのか。</li>
+      <li>土地のことばは、文字の枠に飲み込まれるのか。それとも、形を変えて枠を内側から揺らすのか。</li>
+      <li>四つの軸の間に、論理的な矛盾はないか。どこを精緻化し、どこを歴史の資料で確かめるべきか。</li>
+    </ul>
+
+    <p class="coda">この頁は、答えを閉じるためではなく、問いを開くために置かれている。四つの軸は、世界を切り分けるための刃であると同時に、切り分けた世界をつなぎ直すための糸でもある。読む者が、自分の暮らしや時代の出来事に当てはめ、また別の言葉で語り直すことで、この見取り図は少しずつ育っていく。</p>
+  </section>
+
+</article>
+</main>
+
+<footer class="site-footer">
+  <p class="footer-mark">世の動きを読む四つの軸</p>
+  <p><a href="https://syu-toutousai.github.io/">学習アーカイブ ・ 資料站</a> に戻る</p>
+  <p>syu-toutousai · 2026 · <a href="https://github.com/syu-toutousai/seiji-doutai">Source</a></p>
+</footer>
+</body>
+</html>
